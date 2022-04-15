@@ -194,15 +194,23 @@ $$T(n) = T(n^{1/3^i}) + \Theta(\log \log (n)) + \Theta (\log 1/3 \log (n)) + ...
 $$T(n) = T(n^{1/3^i}) + \Theta(\log \log(n)) + \Theta(\log(1/3)+\log(n)) + ... + \Theta(\log(1/3^{i-1})+\log(n))$$
 $$T(n) = T(n^{1/3^i}) + \Theta(\log \log(n)) + \Theta(\log(n)-\log(3)) + ... + \Theta(\log(n)-\log(3^{i-1}))$$
 $$T(n) = T(n^{1/3^i}) + \Theta(\log \log(n)) + \Theta(\log(n)-1 \cdot \log(3)) + \Theta(\log(n)-2 \cdot \log(3)) + ... + \Theta(log(n) - (i-1) \log(3))$$
-$$T(n) = T(n^{1/3^i}) + \Theta(\log\log(n)) + \Theta(\log(n)-\log(3) \cdot \sum_{k=0}^{i-1}k)$$
-This recursion stops when $n^{1/3^i} \leq 7 \Rightarrow i = \log_3(\log_7(n))$, for which $T(n^{1/3^i})$ is a constant. We can then write $i-1 = \log_3(\log_7(n))-1=\log_3(\log_7(n))-\log_3(3)=\log_3(\frac{\log_7(n)}{3})$
+Since we are subtracting a constant from each $\Theta$ term, we can ignore them giving:
+$$T(n) = T(n^{1/3^i}) + \Theta(\log\log(n)) + i*\Theta(\log(n))$$
+This recursion stops when $n^{1/3^i} \leq 7 \Rightarrow i = \log_3(\log_7(n))$, for which $T(n^{1/3^i})$ is a constant. This gives:
+$$T(n) = 2 + \Theta(\log(\log(n)) + \Theta(\log(\log(n))\cdot\log(n))$$
+$$T(n) \in \Theta(\log(n)\cdot\log(\log(n)))$$
 \item[]{(b)}
+	\begin{itemize}
+		\item[]{\textbf{Base case (n = 7):}}
+		\item[]{\textbf{Inductive hypothesis:}}
+		\item[]{\textbf{Induction on n:}}
+	\end{itemize}
 \end{itemize}
 \end{solution}
 
 \vskip 0.25in
 
-%-----------------------------------Unfinished-----------------------------------
+%-----------------------------------Finished-------------------------------------
 %-----------------------------------Problem 5------------------------------------
 \begin{problem} % (10 points)
 Euclid's algorithm uses the following simple formula, which leads to the algorithm below. 
