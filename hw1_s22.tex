@@ -279,6 +279,8 @@ gcd(a,b) \{\\
 	\>\}\\
 \}\\		
 \end{tabbing}
+\noindent
+First, we check if the given inputs ($a$ and $b$) satisfy one of the base cases.  If so, the recursion stops.  Otherwise, we follow the definition of gcd above and  continue to iterate.  Now, for the runtime analysis.  Every time we call gcd, one, if not both, of the inputs decrease in size by a factor of 2.  This means that we will iterate approximately $\log_2(n)$ times, where $n$ is the greater of $a$ and $b$.  Each loop, we must divide by 2 once, and so we have a total of $O(\log_2(n))$ divisions.  Depending on the implementation of the division in particular, this could lead to different runtimes for the algorithm as a whole.
 \end{itemize}
 \end{solution}
 
