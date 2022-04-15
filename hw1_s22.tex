@@ -237,7 +237,16 @@ $$\gcd(a, b) = \begin{cases}
 				\item[]{\textbf{a is odd \& b is even:}} If one of a and b are even and the other odd, we can swap them such that the first is odd and the second is even, so without loss of generality, it is enough to consider if only the second is even.  Since a is odd, it has no factors of two, so $gcd(a,b)$ must itself be odd.  Therefore, we can remove as many 2's as necessary from b to make it odd, and so if a is odd and b is even, $gcd(a,b) = gcd(a,b/2)$
 				\item[]{\textbf{a \& b are odd:}} Without loss of generality, assume that a is greater than b (otherwise, $a-b < 0$ - though not necessarily required, this makes the argument nicer).  If a and b share a common factor, then we can write $a=\alpha \cdot n$ and $b=\beta \cdot n$ for some $\alpha$ and $\beta$.  Then $a-b=(\alpha - \beta)\cdot n$, so the difference of a and b shares any common factor that a and b might have.  Since a and b are both odd numbers, $\alpha$ and $\beta$ must be odd, and their difference must therefore be even, so $\alpha - \beta$ must have a factor of $2$.  Therefore, for all odd $a$ and $b$, $gcd(a,b)=gcd((a-b)/2,b)$.
 			\end{itemize}
-	\item[]{(b)}
+	\item[]{(b)} To implement this algorithmically, it is fairly simple.  We need only add a few base cases and then this implemenation of gcd is almost ready to go.  The first base case is when one of the numbers is 1 - for which the gcd is also 1.  The other base case is when one of the numbers is 0 - in which case, the gcd is the other number itself.  We can then write an updated version of the gcd above with base cases as follows (again assuming without loss of generality that a is greater than b).
+	$$\gcd(a, b) = \begin{cases}
+	0 & \text{if $b$ is 1 and $a$ is not} \\
+	1 & \text{if $b$ is 0 and $a$ is not} \\
+	a & \text{if $a=b$} \\
+	2\gcd(a/2,b/2) & \text{if $a,b$ are even} \\
+	\gcd(a,b/2) & \text{if $a$ is odd, $b$ is even} \\
+	\gcd((a-b)/2,b) & \text{if $a,b$ are odd}
+	\end{cases}$$
+\noindent
 \end{itemize}
 \end{solution}
 
