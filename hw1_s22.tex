@@ -232,6 +232,11 @@ $$\gcd(a, b) = \begin{cases}
 \begin{solution}
 \begin{itemize}
 	\item[]{(a)}
+			\begin{itemize}
+				\item[]{\textbf{a \& b are even:}} If a and b are even, that means that they share a factor of (at least) 2 - so therefore, if we remove that factor from both (by dividing), then the greatest common divisor of a and b is 2 times that of the remaining numbers (that have been divided by 2).  Therefore, this shows that if a and b are even, $gcd(a,b) = 2gcd(a/2,b/2)$.
+				\item[]{\textbf{a is odd \& b is even:}} If one of a and b are even and the other odd, we can swap them such that the first is odd and the second is even, so without loss of generality, it is enough to consider if only the second is even.  Since a is odd, it has no factors of two, so $gcd(a,b)$ must itself be odd.  Therefore, we can remove as many 2's as necessary from b to make it odd, and so if a is odd and b is even, $gcd(a,b) = gcd(a,b/2)$
+				\item[]{\textbf{a \& b are odd:}} Without loss of generality, assume that a is greater than b (otherwise, $a-b < 0$ - though not necessarily required, this makes the argument nicer).  If a and b share a common factor, then we can write $a=\alpha \cdot n$ and $b=\beta \cdot n$ for some $\alpha$ and $\beta$.  Then $a-b=(\alpha - \beta)\cdot n$, so the difference of a and b shares any common factor that a and b might have.  Since a and b are both odd numbers, $\alpha$ and $\beta$ must be odd, and their difference must therefore be even, so $\alpha - \beta$ must have a factor of $2$.  Therefore, for all odd $a$ and $b$, $gcd(a,b)=gcd((a-b)/2,b)$.
+			\end{itemize}
 	\item[]{(b)}
 \end{itemize}
 \end{solution}
